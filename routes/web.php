@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,19 +18,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//NO2
+//Route::get('/', [PageController::class, 'index']);
+//Route::get('/abaut', [PageController::class, 'abaut']);
+//Route::get('/articles/{id}', [PageController::class, 'articles']);
 
-Route::get('/', function () {
-    echo "Selamat Datang";
-});
-
-Route::get('/abaut', function () {
-    echo "Nim   : 2031710011 <br>";
-    echo "Nama  : Ichsani Nikken Rahmawati ";
-});
-
-Route::get('/articles/{id}', function ($id) {
-    return 'Halaman Artikel dengan ID '.$id;
-});
+//NO3
+Route::get('/', [HomeController::class, 'greetings']);
+Route::get('/abaut', [AboutController::class, 'identitas']);
+Route::get('/articles/{id}', [ArticleController::class, 'artikel']);
